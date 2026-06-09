@@ -1,0 +1,132 @@
+# ==============================================================================
+# Quartus Prime Project Settings File (.qsf)
+# Kit de Desenvolvimento: Terasic DE10-Lite
+# Dispositivo: Intel MAX 10 (10M50DAF484C7G)
+# Projeto: Controlador Modular de Elevador com FSM e Integração com Protótipo
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Sinais Globais de Sistema (Clock e Reset)
+# ------------------------------------------------------------------------------
+set_location_assignment PIN_P11 -to clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+
+set_location_assignment PIN_B8 -to reset_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset_n
+
+# ------------------------------------------------------------------------------
+# 2. Interface de Entrada de Dados Local (Chaves Físicas da Placa)
+# ------------------------------------------------------------------------------
+set_location_assignment PIN_C10 -to sw_chaves[0]
+set_location_assignment PIN_C11 -to sw_chaves[1]
+set_location_assignment PIN_D12 -to sw_chaves[2]
+set_location_assignment PIN_C12 -to sw_chaves[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sw_chaves[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sw_chaves[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sw_chaves[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sw_chaves[3]
+
+# ------------------------------------------------------------------------------
+# 3. Interface de Saída de Sinalização Local (LEDs da Placa)
+# ------------------------------------------------------------------------------
+set_location_assignment PIN_A8 -to led_chamada[0]
+set_location_assignment PIN_A9 -to led_chamada[1]
+set_location_assignment PIN_A10 -to led_chamada[2]
+set_location_assignment PIN_B10 -to led_chamada[3]
+set_location_assignment PIN_D13 -to led_descendo
+set_location_assignment PIN_C13 -to led_subindo
+set_location_assignment PIN_E14 -to led_porta_aberta
+set_location_assignment PIN_D14 -to led_porta_mov
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_chamada[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_chamada[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_chamada[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_chamada[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_descendo
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_subindo
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_porta_aberta
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led_porta_mov
+
+# ------------------------------------------------------------------------------
+# 4. Interface Física com a Maquete Eletromecânica (Conector GPIO)
+# ------------------------------------------------------------------------------
+# Saídas Digitais - Controle de Potência dos Motores (Ponte H e Servo)
+set_location_assignment PIN_V10 -to gpio_motor_in1
+set_location_assignment PIN_W10 -to gpio_motor_in2
+set_location_assignment PIN_V9 -to pwm_porta
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio_motor_in1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio_motor_in2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to pwm_porta
+
+# Entradas Digitais - Sensores de Segurança e Fim de Curso da Maquete
+set_location_assignment PIN_W9 -to sensor_peso
+set_location_assignment PIN_V8 -to sensor_barreira
+set_location_assignment PIN_W8 -to btn_emergencia
+set_location_assignment PIN_V7 -to sensor_andar[0]
+set_location_assignment PIN_W7 -to sensor_andar[1]
+set_location_assignment PIN_V5 -to sensor_andar[2]
+set_location_assignment PIN_W5 -to sensor_andar[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_peso
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_barreira
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to btn_emergencia
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_andar[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_andar[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_andar[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sensor_andar[3]
+
+# ------------------------------------------------------------------------------
+# 5. Interface Visual Homem-Máquina (Displays de 7 Segmentos)
+# ------------------------------------------------------------------------------
+# HEX0: Indicador do Andar Atual
+set_location_assignment PIN_C14 -to HEX0[0]
+set_location_assignment PIN_E15 -to HEX0[1]
+set_location_assignment PIN_C15 -to HEX0[2]
+set_location_assignment PIN_C16 -to HEX0[3]
+set_location_assignment PIN_E16 -to HEX0[4]
+set_location_assignment PIN_D17 -to HEX0[5]
+set_location_assignment PIN_C17 -to HEX0[6]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6]
+
+# HEX2: Status Operacional da Porta
+set_location_assignment PIN_B20 -to HEX2[0]
+set_location_assignment PIN_A20 -to HEX2[1]
+set_location_assignment PIN_B19 -to HEX2[2]
+set_location_assignment PIN_A21 -to HEX2[3]
+set_location_assignment PIN_B21 -to HEX2[4]
+set_location_assignment PIN_C22 -to HEX2[5]
+set_location_assignment PIN_B22 -to HEX2[6]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6]
+
+# HEX3: Indicador de Sentido de Deslocamento (Setas)
+set_location_assignment PIN_F21 -to HEX3[0]
+set_location_assignment PIN_E22 -to HEX3[1]
+set_location_assignment PIN_E21 -to HEX3[2]
+set_location_assignment PIN_C19 -to HEX3[3]
+set_location_assignment PIN_C18 -to HEX3[4]
+set_location_assignment PIN_D18 -to HEX3[5]
+set_location_assignment PIN_E17 -to HEX3[6]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6]
